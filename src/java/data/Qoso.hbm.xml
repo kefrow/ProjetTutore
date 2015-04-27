@@ -8,7 +8,7 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <set name="srs" table="sr" inverse="true" lazy="true" fetch="select">
+        <set name="srs" table="sr" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="qoso_id" not-null="true" />
             </key>

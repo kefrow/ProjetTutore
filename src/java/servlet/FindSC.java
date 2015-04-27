@@ -5,7 +5,6 @@
  */
 package servlet;
 
-import data.S;
 import data.Sc;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +16,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
@@ -67,14 +65,11 @@ public class FindSC extends HttpServlet {
 
                 request.setAttribute("sc", sc);
                 
-                session.close();
+                session.close();                                
                 
-                out.println(request.getParameter("findsc_submit")+" button<br/>");
-                
-                /*
                 getServletConfig().getServletContext().getRequestDispatcher(
                         "/FindSC.jsp").forward(request, response);
-                */
+                
                 /*
 
                 if (sc == null) {

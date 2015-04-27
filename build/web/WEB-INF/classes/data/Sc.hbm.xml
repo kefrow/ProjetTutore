@@ -11,7 +11,7 @@
         <property name="name" type="string">
             <column name="name" length="45" />
         </property>
-        <set name="srs" table="sr" inverse="true" lazy="true" fetch="select">
+        <set name="srs" table="sr" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="sc_id" not-null="true" />
             </key>
