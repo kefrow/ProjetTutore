@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 avr. 2015 15:44:26 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="data.Sr" table="sr" catalog="projet_tutore" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="qoso" class="data.Qoso" fetch="select" cascade="persist">
+            <column name="qoso_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="s" class="data.S" fetch="select" cascade="persist">
+            <column name="s_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sc" class="data.Sc" fetch="select" cascade="persist">
+            <column name="sc_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sp" class="data.Sp" fetch="select" cascade="persist">
+            <column name="sp_id" not-null="true" />
+        </many-to-one>
+        <property name="scName" type="string">
+            <column name="sc_name" length="45" />
+        </property>
+        <property name="SName" type="string">
+            <column name="s_name" length="45" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
