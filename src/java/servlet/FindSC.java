@@ -6,18 +6,24 @@
 package servlet;
 
 import data.Sc;
+import data.Sr;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -53,37 +59,18 @@ public class FindSC extends HttpServlet {
             StandardServiceRegistryBuilder ssrb = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
             SessionFactory sessionFactory = configuration.buildSessionFactory(ssrb.build());
             Session session = sessionFactory.openSession();
-
             try {
-
-                String sc_name = request.getParameter("sc_name").trim();
-
-                Query query = session.createQuery("from data.Sc sc where sc.name = :aName");
-                query.setParameter("aName", sc_name);
-
-                Sc sc = (Sc) query.uniqueResult();
-
-                request.setAttribute("sc", sc);
-                
-                session.close();                                
-                
-                getServletConfig().getServletContext().getRequestDispatcher(
-                        "/FindSC.jsp").forward(request, response);
-                
-                /*
-
-                if (sc == null) {
-                    out.println("No Service Capability found<br/>");
-                } else {
-                    out.println("<table>");
-                    out.println("<tr><th>SR_ID</th><th>SC_ID</th><th></th><th>SC_Name</th>"
-                            + "<th>S_ID</th><th>S_Name</th><th></th><th>SR_Status</th><th>SP_ID</th><th>SR_QosQ</th>");
-                    //Iterable it = 
-                    out.println("</table>");
-                }
-                
-                */
-                
+                String sc_name = '%'+request.getParameter("sc_name").trim()+'%';
+                Criteria crit = session.createCriteria(Sr.class);
+                crit.add(Restrictions.like("scName", sc_name));
+                Iterator it = crit.list().iterator();
+                Set<Sr> srs = new HashSet();
+                while(it.hasNext()){
+                    srs.add((Sr)it.next());
+                }                                
+                request.setAttribute("srs", srs);                
+                session.close();                                                
+                getServletConfig().getServletContext().getRequestDispatcher("/FindSC.jsp").forward(request, response);
             } catch (HibernateException he) {
                 out.println(he.getMessage() + "<br/>");
                 session.close();

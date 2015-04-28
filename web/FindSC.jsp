@@ -48,10 +48,11 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <c:choose>
-                            <c:when test="${empty requestScope.sc}">
+                            <c:when test="${empty requestScope.srs}">
                                 <p class="bg-info" style="padding: 15px">No information has been found</p>
                             </c:when>
                             <c:otherwise>
+                                
                                 <table id="myTable" class="tablesorter">
                                     <thead>
                                         <tr>
@@ -66,7 +67,7 @@
                                         </tr>
                                     </thead>      
                                     <tbody>
-                                        <c:forEach items="${requestScope.sc.srs}" var="aSr">
+                                        <c:forEach items="${requestScope.srs}" var="aSr">
                                             <tr>
                                                 <td>${aSr.id}</td>
                                                 <td>${aSr.sc.id}</td>
@@ -80,6 +81,7 @@
                                         </c:forEach>
                                     </tbody>
                                 </table>
+                                
                             </c:otherwise>
                         </c:choose>
                     </div>

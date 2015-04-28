@@ -76,6 +76,17 @@ public final class FindSC_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script type=\"text/javascript\" src=\"js/jquery.tablesorter.min.js\"></script> \n");
       out.write("        <link rel=\"stylesheet\" href=\"css/tablesorter/style.css\"/>     \n");
       out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\"/> \n");
+      out.write("        \n");
+      out.write("        <style type=\"text/css\">\n");
+      out.write("            /* The table is too small in my opinion */\n");
+      out.write("            table.tablesorter thead tr th {\n");
+      out.write("                font-size: 11pt\n");
+      out.write("            }\n");
+      out.write("            table.tablesorter {\n");
+      out.write("                font-size: 11pt\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("        </style>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <h1 class=\"text-center\">Find a Service Capability</h1>\n");
@@ -90,7 +101,7 @@ public final class FindSC_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("            <div class=\"form-group\">\n");
       out.write("                <div class=\"col-sm-offset-2 col-sm-10\">\n");
-      out.write("                    <button type=\"submit\" class=\"btn btn-default\" name=\"findsc_submit\" class=\"btn btn-default\">Find this SC</button>\n");
+      out.write("                    <button type=\"submit\" class=\"btn btn-default\" name=\"findsc_submit\" class=\"btn btn-default\" value=\"submit\">Find this SC</button>\n");
       out.write("                </div>\n");
       out.write("            </div>            \n");
       out.write("\n");
