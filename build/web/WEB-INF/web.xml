@@ -45,6 +45,10 @@
         <url-pattern>/NewS</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>NewS2</servlet-name>
+        <url-pattern>/NewS2</url-pattern>
+    </servlet-mapping>    
+    <servlet-mapping>
         <servlet-name>NewQoso</servlet-name>
         <url-pattern>/NewQoso</url-pattern>
     </servlet-mapping>
