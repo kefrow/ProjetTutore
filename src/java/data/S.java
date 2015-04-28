@@ -1,5 +1,5 @@
 package data;
-// Generated 26 avr. 2015 15:44:25 by Hibernate Tools 4.3.1
+// Generated 28 avr. 2015 13:05:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,13 +13,19 @@ public class S  implements java.io.Serializable {
 
      private Integer id;
      private String name;
+     private Set SScs = new HashSet(0);
      private Set srs = new HashSet(0);
 
     public S() {
     }
 
-    public S(String name, Set srs) {
+	
+    public S(String name) {
+        this.name = name;
+    }
+    public S(String name, Set SScs, Set srs) {
        this.name = name;
+       this.SScs = SScs;
        this.srs = srs;
     }
    
@@ -36,6 +42,13 @@ public class S  implements java.io.Serializable {
     
     public void setName(String name) {
         this.name = name;
+    }
+    public Set getSScs() {
+        return this.SScs;
+    }
+    
+    public void setSScs(Set SScs) {
+        this.SScs = SScs;
     }
     public Set getSrs() {
         return this.srs;

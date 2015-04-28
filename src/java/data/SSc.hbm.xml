@@ -3,16 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 28 avr. 2015 13:05:33 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="data.Qoso" table="qoso" catalog="projet_tutore" optimistic-lock="version">
+    <class name="data.SSc" table="s_sc" catalog="projet_tutore" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <set name="srs" table="sr" inverse="true" lazy="false" fetch="select">
-            <key>
-                <column name="qoso_id" not-null="true" />
-            </key>
-            <one-to-many class="data.Sr" />
-        </set>
+        <many-to-one name="s" class="data.S" fetch="select" cascade="persist">
+            <column name="id_s" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sc" class="data.Sc" fetch="select" cascade="persist">
+            <column name="id_sc" not-null="true" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

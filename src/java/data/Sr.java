@@ -1,8 +1,5 @@
 package data;
-// Generated 26 avr. 2015 15:44:25 by Hibernate Tools 4.3.1
-
-import java.util.Objects;
-
+// Generated 28 avr. 2015 13:05:32 by Hibernate Tools 4.3.1
 
 
 
@@ -24,14 +21,6 @@ public class Sr  implements java.io.Serializable {
     public Sr() {
     }
 
-	
-    public Sr(Qoso qoso, S s, Sc sc, Sp sp, String status) {
-        this.qoso = qoso;
-        this.s = s;
-        this.sc = sc;
-        this.sp = sp;
-        this.status = status;
-    }
     public Sr(Qoso qoso, S s, Sc sc, Sp sp, String scName, String SName, String status) {
        this.qoso = qoso;
        this.s = s;
@@ -97,28 +86,6 @@ public class Sr  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Sr other = (Sr) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
     }
 
 

@@ -4,15 +4,15 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projet_tutore</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projet_tutore?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">password</property>
     <property name="hibernate.show_sql">true</property>
-    <!-- <mapping resource="hibernate.hbm.xml" /> -->
-    <mapping resource="data/Sr.hbm.xml"/>
-    <mapping resource="data/S.hbm.xml"/>
-    <mapping resource="data/Sp.hbm.xml"/>
-    <mapping resource="data/Sc.hbm.xml"/>
-    <mapping resource="data/Qoso.hbm.xml"/>
+    <mapping class="data.Sr" file="" jar="" package="" resource="data/Sr.hbm.xml"/>
+    <mapping class="data.Sc" file="" jar="" package="" resource="data/Sc.hbm.xml"/>
+    <mapping class="data.SSc" file="" jar="" package="" resource="data/SSc.hbm.xml"/>
+    <mapping class="data.Sp" file="" jar="" package="" resource="data/Sp.hbm.xml"/>
+    <mapping class="data.S" file="" jar="" package="" resource="data/S.hbm.xml"/>
+    <mapping class="data.Qoso" file="" jar="" package="" resource="data/Qoso.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
